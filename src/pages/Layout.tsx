@@ -4,6 +4,8 @@ import { isDarkAtom } from "../atom";
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "../styles/theme";
 import GlobalStyle from "../styles/GlobalStyle";
+import Container from "../components/Container";
+import Header from "../components/Header";
 
 export default function Layout() {
   const isDarkMode = useRecoilValue(isDarkAtom);
@@ -11,7 +13,10 @@ export default function Layout() {
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <GlobalStyle />
-      <Outlet />
+      <Container>
+        <Header />
+        <Outlet />
+      </Container>
     </ThemeProvider>
   );
 }
