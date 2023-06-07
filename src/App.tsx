@@ -1,7 +1,18 @@
 import React from "react";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RecoilRoot, useRecoilValue } from "recoil";
+import routes from "./routes";
 
-function App() {
-  return <div></div>;
+export default function App() {
+  const router = createBrowserRouter(routes);
+  const queryClient = new QueryClient();
+
+  return (
+    <RecoilRoot>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </RecoilRoot>
+  );
 }
-
-export default App;
