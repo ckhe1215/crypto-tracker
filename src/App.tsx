@@ -5,7 +5,9 @@ import { RecoilRoot } from "recoil";
 import routes from "./routes";
 
 export default function App() {
-  const router = createBrowserRouter(routes);
+  const router = createBrowserRouter(routes, {
+    basename: process.env.PUBLIC_URL,
+  });
   const queryClient = new QueryClient();
 
   return (
