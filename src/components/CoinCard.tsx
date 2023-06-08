@@ -18,7 +18,6 @@ const Card = styled.div`
 const Thumbnail = styled.img`
   width: 1.5rem;
   margin-right: 0.8rem;
-  /* vertical-align: middle; */
 `;
 
 interface ICoinCard {
