@@ -8,6 +8,20 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1.5rem 0.7rem;
+  font-size: 1.5rem;
+`;
+
+const Title = styled.h1`
+  font-size: 1.5rem;
+  font-weight: bold;
+`;
+
+const ToggleButton = styled.button`
+  background: none;
+  border: 0px;
+  padding: 0;
+  font-size: 1.5rem;
 `;
 
 export default function Header() {
@@ -19,8 +33,8 @@ export default function Header() {
   return (
     <Wrapper>
       <Link to="/">🏠</Link>
-      <h1>Crypto Tracker</h1>
-      <button onClick={onClick}>{isDarkMode ? "☀️" : "🌕"}</button>
+      <Title>Crypto Tracker</Title>
+      <ToggleButton onClick={onClick}>{isDarkMode ? "☀️" : "🌕"}</ToggleButton>
     </Wrapper>
   );
 }
