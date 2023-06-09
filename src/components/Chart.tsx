@@ -20,6 +20,7 @@ export default function Chart() {
     () => fetchCoinHistory(coinId)
   );
   const isDark = useRecoilValue(isDarkAtom);
+  const chartData = Array.isArray(data) ? [...data] : null;
 
   return (
     <Wrapper>
@@ -30,7 +31,7 @@ export default function Chart() {
           type="candlestick"
           series={[
             {
-              data: data?.map((price) => ({
+              data: chartData?.map((price) => ({
                 x: new Date(price.time_open),
                 y: [
                   parseFloat(price.open),
@@ -38,7 +39,7 @@ export default function Chart() {
                   parseFloat(price.low),
                   parseFloat(price.close),
                 ],
-              })) ?? [{ x: new Date(), y: [1, 2, 3, 4] }],
+              })) ?? [{ x: new Date(), y: [0, 0, 0, 0] }],
             },
           ]}
           options={{
@@ -62,7 +63,7 @@ export default function Chart() {
               labels: { show: false },
               type: "datetime",
               categories:
-                data?.map((price) =>
+                chartData?.map((price) =>
                   new Date(price.time_close * 1000).toUTCString()
                 ) ?? [],
             },
