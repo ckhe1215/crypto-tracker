@@ -24,9 +24,13 @@ export default function Coin() {
   );
 
   const loading = infoLoading || priceLoading;
-  return loading ? (
-    <Loading />
-  ) : (
-    <CoinInfo infoData={infoData} priceData={priceData} />
+  return (
+    <div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <CoinInfo infoData={infoData} priceData={priceData} />
+      )}
+    </div>
   );
 }

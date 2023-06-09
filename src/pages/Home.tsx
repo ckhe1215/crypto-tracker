@@ -7,6 +7,8 @@ import Loading from "../components/Loading";
 export default function Home() {
   const { isLoading, data } = useQuery("allCoins", fetchCoins);
   return (
-    <>{isLoading ? <Loading /> : <CoinList coins={data.slice(0, 100)} />}</>
+    <div>
+      {isLoading ? <Loading /> : <CoinList coins={data.slice(0, 100)} />}
+    </div>
   );
 }
